@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { qtyIncrementProduct, qtyDecrementProduct } from "../redux/Action/Cartaction";
+import { qtyIncrementProduct, qtyDecrementProduct,removeCartProduct } from "../redux/Action/Cartaction";
+
 
 const Cart = () =>{
     const cartItem = useSelector((state) => state.allCartItems)
@@ -51,6 +52,7 @@ const Cart = () =>{
                                             </td>
                                             <td><p>{cartItem.cartItems[index].total}</p></td>
                                             <td> <button className="btn btn-danger btn-sm"
+                                             onClick={() => dispatch(removeCartProduct(cartItem.cartItems[index].id))}
                                             >Delete</button></td>
                                         </tr>
                                         
@@ -64,7 +66,7 @@ const Cart = () =>{
                 </div>
                 </div>
 
-               
+
         </div>
     )
 }

@@ -17,6 +17,7 @@ const ProductComponent = () => {
       const total = price
       dispatch(addToCart({ id, image, title, price, qty, total }))
       alert("Add to Cart Successfully")
+
   }
 
     return (

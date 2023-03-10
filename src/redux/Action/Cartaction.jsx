@@ -20,3 +20,10 @@ export const qtyDecrementProduct = (productId) => {
         payload: productId
     }
 }
+
+export const removeCartProduct = (productId) => {
+    return {
+        type: ActionType.REMOVE_CART_PRODUCT,
+        payload: productId
+    }
+}

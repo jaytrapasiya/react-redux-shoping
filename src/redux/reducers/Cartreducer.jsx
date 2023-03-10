@@ -24,6 +24,7 @@ export const CartReducer = (state = initialState, { type, payload }) => {
             }
             return { ...state }
         }
+       
 
         case ActionType.QTY_INCREMENT_PRODUCT: {
             const prevState = { ...state };
@@ -63,6 +64,20 @@ export const CartReducer = (state = initialState, { type, payload }) => {
 
             return { ...state }
         }
+
+      case ActionType.REMOVE_CART_PRODUCT: {
+            const prevState = state;
+            const index = prevState.cartItems.findIndex((getIndex) => {
+                return (getIndex.id === payload)
+            })
+            if (window.confirm("Do You Want to Remove This Product...!")) {
+                prevState.cartItems.splice(index, 1)
+                    return { ...prevState }
+
+            }
+            
+            return { ...state}
+        }    
 
 
 
